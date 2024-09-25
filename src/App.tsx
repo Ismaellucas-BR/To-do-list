@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import Empty from "./components/empty";
+import Empty from "./components/Empty";
 import Header from "./components/Header";
 import ItemList from './components/ItemList';
 
@@ -50,18 +50,24 @@ function App() {
   return (
     <>
       <Header onCreateItem={handleCreateItem} inputValue={inputValue} setInputValue={setInputValue} />
-      <main className="flex flex-col items-center justify-center bg-gray-60 font-inter pt-16 mt-16">
-        <div className="flex justify-between text-white w-[46rem] pb-6">
-          <div className="flex items-end text-sm gap-2">
+      <main className="flex flex-col items-center justify-center bg-gray-60 font-inter pt-16 lg:mt-16">
+        <div className="flex justify-between text-white w-full lg:w-[46rem] pb-6 p-5">
+          <div className="flex items-end gap-2 font-inter font-bold text-sm">
             <span className="text-blue">Tarefas criadas</span> 
             <span className="bg-gray-40 px-2 py-1 rounded-full">{items.length}</span>
           </div>
-          <div className="flex items-end text-sm gap-2">
-            <span className="text-blue">Concluídas</span> 
-            <span className="bg-gray-40 px-2 py-1 rounded-full">{completedCount}</span>
+          <div className="flex items-end gap-2 font-inter font-bold text-sm">
+            <span className="text-purple-dark">Concluídas</span> 
+            <span className="bg-gray-40 px-2 py-1 rounded-full">
+            {items.length === 0 
+              ? '0' 
+              : items.filter(item => item.completed).length <= 1 
+                ? `${items.filter(item => item.completed).length}` 
+                : `${items.filter(item => item.completed).length} de ${items.length}`}
+            </span>
           </div>
         </div>
-        <div>
+        <div className='flex flex-col gap-5'>
           {items.length === 0 ? (
             <Empty />
           ) : (
