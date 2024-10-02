@@ -10,9 +10,9 @@ interface HeaderProps {
 
 function Header({ onCreateItem, inputValue, setInputValue }: HeaderProps) {
   return (
-    <header className="lg:max-w-[1440px] pt-4 lg:h-[200px] bg-gray-70 flex flex-col items-center justify-end">
+    <header className="md:w-full lg:max-w-[1440px] pt-4 lg:h-[200px] bg-gray-70 flex flex-col items-center justify-end">
       <img src={Logo} className='mb-14' alt="Logo escrito 'to do'" />
-      <form onSubmit={onCreateItem} className='flex justify-center w-[46rem] items-center gap-2 font-inter mb-[-2rem] text-white'>
+      <form onSubmit={onCreateItem} className='flex justify-center w-full items-center px-10 gap-2 font-inter mb-[-2rem] text-white lg:w-[46rem] z-10'>
         <input
           name="toDoCreateItem"
           placeholder='Adicione uma nova tarefa'

@@ -7,3 +7,9 @@
 input[type="checkbox"]:checked + label {
     text-decoration: line-through;
   }
+
+  #root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
