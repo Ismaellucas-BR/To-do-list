@@ -12,7 +12,7 @@ interface Item {
 function App() {
   const [items, setItems] = useState<Item[]>([]);
 
-  const [completedCount, setCompletedCount] = useState(0);
+  const [_completedCount, setCompletedCount] = useState(0);
   const [nextId, setNextId] = useState(4);
   const [inputValue, setInputValue] = useState('');
 
